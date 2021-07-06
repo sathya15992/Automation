@@ -1,5 +1,5 @@
 provider "aws" {
-region = "us-east-1"
+region = "${var.aws_region}"
 }
 resource "aws_instance" "web" {
   ami           = "ami-0ab4d1e9cf9a1215a"
