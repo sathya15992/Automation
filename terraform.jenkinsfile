@@ -1,0 +1,14 @@
+node{
+stage ('SCM Checkout')
+{
+git 'https://github.com/sathya15992/Automation'
+echo 'checkout completed'
+}
+stage('Terraform')
+    {
+     sh "sed -i 's/REGION/$REGION_NAME/g' var.tf"
+     sh "terraform init"
+     sh "terraform apply -auto-approve"
+       
+    }
+}
